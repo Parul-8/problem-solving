@@ -1,8 +1,18 @@
 class Solution:
     def isValid(self, s: str) -> bool:
-        while len(s) > 0:
-            l = len(s)
-            s = s.replace('()','').replace('{}','').replace('[]','')
-            if l==len(s): return False
-        return True
+        stack = []
+        
+        dict_map = { ')':'(','}':'{',']':'[' }
+        
+        for char in s:
+            if char in dict_map:
+                top = stack.pop() if stack else '#' 
+                
+                if dict_map[char] != top:
+                    return False
+                
+            
+            else:
+                stack.append(char)
+        return not stack
         
