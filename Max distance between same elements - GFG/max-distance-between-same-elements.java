@@ -29,19 +29,18 @@ class Solution
 {
     int maxDistance(int arr[], int n)
     {
-	// use hashmap to store the element and index -> use maxDist to keep track on max diff in indexes
-	   
+	// Your code here
+	    int ansMaxDistance = 0;
 	    Map<Integer,Integer> map = new HashMap<>();
-	    int maxDist = 0;
 	    for(int i =0;i<arr.length;i++){
-	        if(!map.containsKey(arr[i])){
+	        if(!map.containsKey(arr[i]))  
 	            map.put(arr[i],i);
-	        }
-	        
-	        maxDist = Math.max(maxDist,i-map.get(arr[i]));
-	        
+	        else 
+	            ansMaxDistance =  Math.max(ansMaxDistance,i-map.get(arr[i]));
+	            
 	    }
-	    return maxDist;
-	    
+	    return ansMaxDistance;
+	
+	
     }
 }
